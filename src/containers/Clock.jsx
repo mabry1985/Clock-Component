@@ -20,13 +20,15 @@ export class Clock extends React.Component {
   componentDidMount() {
     this.timerID = setInterval(
       () => this.tick(),
-      this.applyColor(),
       1000,
     );
   }
 
   componentDidUpdate(prevProps, prevState) {
-    this.applyColor();
+    this.timerID = setInterval(
+      this.applyColor(),
+      1000,
+    );
   }
 
   componentWillUnmount() {
